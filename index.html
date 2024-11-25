@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./ps.js"></script>
+</head>
+<body>
+    
+    <script>
+            
+            const table=document.createElement("table");
+            const thead = document.createElement("thead");
+            const tbody = document.createElement("tbody");
+            const tr= document.createElement("tr")
+            table.appendChild(thead)
+            table.style.margin="auto"
+            table.style.border="2px solid black"
+            
+            const data =[{id:1,name:"ganesh",gender:"male",education:"b-tech"},
+            {id:2,name:"sathwik",gender:"male",education:"b-tech"},
+            {id:3,name:"nithish",gender:"male",education:"b-tech"},
+            {id:4,name:"roshan",gender:"male",education:"b-tech"}
+        ];
+        // console.log(data)
+        
+        const headers = [];
+        for(let keys in data[0]){
+            // console.log(keys)
+            headers.push(keys)
+        }
+        // console.log(headers)
+        for(ele of headers){
+            const th = document.createElement("th")
+            th.textContent=ele[0].toUpperCase()+ele.slice(1)
+            th.style.border="2px solid black"
+            tr.appendChild(th)
+        }
+        
+        thead.appendChild(tr)
+        document.body.append(table)
+        
+        for(objs of data){
+            const trow = document.createElement("tr");
+            for(key in objs){
+                const td = document.createElement("td")
+                td.textContent=objs[key]
+                td.style.border="2px solid black"
+                trow.appendChild(td)
+                // console.log(objs[key])
+            }
+            tbody.appendChild(trow)
+        }
+        table.appendChild(tbody)
+        
+
+
+
+    </script>
+</body>
+</html>
